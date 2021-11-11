@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bcf2213e-1488-4050-9a65-bd5ad662d314" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/arguments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ga_mo.py" beforeDir="false" afterPath="$PROJECT_DIR$/ga_mo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +126,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo SPEA2 --pop 4 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross 2POINT --ga-mut UNIFORM --ga-repl mu_lambda --iter 50 --radius 500 --seed 1 --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo SPEA2 --pop 4 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross 2POINT --ga-mut UNIFORM --ga-repl mu_lambda --iter 10 --radius 500 --seed 666 --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
