@@ -133,3 +133,5 @@ examples/
 condor/
 libs/
 irace/
+inputs/
+
