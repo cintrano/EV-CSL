@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bcf2213e-1488-4050-9a65-bd5ad662d314" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="20P2wAf0V2MoohkNPlqeTFS0Jdc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/main.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/operators" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.test dummy">
+    <configuration name="main SPEA2" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --pop 20 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross 2POINT --ga-mut UNIFORM --ga-repl mu_lambda --pop 20 --iter 1000 --radius 500 --input ./inputs --output ./outputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --pop 20 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross 2POINT --ga-mut UNIFORM --ga-repl mu_lambda --pop 20 --iter 1000 --radius 500 --input ./inputs --output ./outputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="montecarlo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/montecarlo.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --pop 20 --ga-sel None --ga-sel TOURNAMENT2 --ga-cross 2POINT --ga-mut UNIFORM --ga-repl mu_lambda --pop 20 --iter 1000 --radius 500 --input ./inputs --output ./outputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test SPEA2" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo SPEA2 --pop 20 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross 2POINT --ga-mut UNIFORM --ga-repl mu_lambda --pop 20 --iter 1000 --radius 500 --seed 1  --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test dummy" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo SPEA2 --pop 4 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross 2POINT --ga-mut UNIFORM --ga-repl mu_lambda --iter 50 --radius 500 --seed 1 --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --pop 20 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross 2POINT --ga-mut UNIFORM --ga-repl mu_lambda --pop 20 --iter 1000 --radius 500 --seed 1  --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.main SPEA2" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.test SPEA2" />
+      <item itemvalue="Python.test dummy" />
+      <item itemvalue="Python.montecarlo" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.montecarlo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bcf2213e-1488-4050-9a65-bd5ad662d314" name="Changes" comment="" />
+      <created>1635932150438</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635932150438</updated>
+    </task>
+    <servers />
+  </component>
+</project>
