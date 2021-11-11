@@ -158,8 +158,9 @@ def execute(toolbox, pop_size, fitness, cxpb=0.5, mutpb=0.2, max_iter=100):
         fits = [ind.fitness.values for ind in pop]
         if g % 10 == 0:
             # print_stats(fits)
-            main.write_fitness_values(fits, f"fits-{g}.ssv")
-            main.write_population(pop, f"pops-{g}.ssv")
+            # main.write_fitness_values(fits, f"fits-{g}.ssv")
+            # main.write_population(pop, f"pops-{g}.ssv")
+            pass
     return fits, pop
 
 

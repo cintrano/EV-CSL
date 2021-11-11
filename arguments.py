@@ -22,7 +22,7 @@ parser.add_argument('--qos-gamma', dest='gamma', type=float, help='')
 # Input Output files managements
 parser.add_argument('--input', dest='in_path', help='path of the input files', default='')
 parser.add_argument('--output', dest='out_path', help='path of the output files', default='')
-parser.add_argument('--write-output', dest='write_files', type=bool, default=True, const=False, nargs='?', help='no create files')
+parser.add_argument('--write-output', dest='write_files', type=bool, default=True, nargs='?', help='no create files')
 
 # Ending process
 parser.add_argument('--timer', type=int, dest='MAX_TIME', nargs='?', help='max time of the execution')
