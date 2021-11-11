@@ -27,8 +27,9 @@ def cross_by_substations_zone(ind1, ind2):
     """
     i1 = np.copy(ind1)
     i2 = np.copy(ind2)
-    station = np.random.uniform(0, args.E, 1)
-    mask = problem.relevance_substations[station, :].astype(bool)
+    station = np.random.randint(0, args.E, 1)
+    mask_matrix = problem.relevance_substations[station, :].astype(bool)
+    mask = mask_matrix[0]
     x = i1[mask]
     i1[mask] = i2[mask]
     i2[mask] = x
