@@ -45,10 +45,16 @@ if __name__ == '__main__':
         if args.algorithm == "SPEA2":
             fits, pop = ga_mo.run_spea2(problem.fitness_mo, args.POP_SIZE, args.sel_mode, args.cross_mode, args.mut_mode,
                               args.repl_mode, cross_prob=args.prob_cross, mut_prob=args.prob_mut, max_iter=args.iter)
+        # Execution time
+        end = datetime.datetime.now()
+        duration = end - start
+        print('Running Time:', start, end, duration.seconds)
 
+        # Writting files
         if args.write_files:
             write_fitness_values(fits, str(args.seed) + '-' + FITNESS_FILE)
             write_population(pop, str(args.seed) + '-' + POPULATION_FILE)
+        # Calculating the HV
         # change sign of first objective to convert it into a minimization
         f = [[(-1.0 * x), y] for x, y in fits]
         nadir_x, nadir_y = 0, 100000000  # TODO: Change to a more fixed nadir point

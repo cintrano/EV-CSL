@@ -48,6 +48,7 @@ parser.add_argument('--m', type=float, dest='m', nargs='?', help='')
 parser.add_argument('--next', type=str, dest='VNS_next_opt', nargs='?', help='')
 
 # GA
+parser.add_argument('--ga-generation', type=str, dest='generation', nargs='?', help='')
 parser.add_argument('--ga-sel', type=str, dest='sel_mode', nargs='?', help='')
 parser.add_argument('--ga-cross', type=str, dest='cross_mode', nargs='?', help='')
 parser.add_argument('--ga-mut', type=str, dest='mut_mode', nargs='?', help='')

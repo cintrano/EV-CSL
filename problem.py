@@ -1,5 +1,7 @@
 
 import numpy as np
+from numpy import ma
+
 from operators import mutations
 from arguments import args
 
@@ -296,6 +298,23 @@ def repair(individual):
                                       (ind_in_this_energy_station == 2).sum() * 50.0
     #print('.', end='')
     return individual,
+
+
+# Press the green button in the gutter to run the script.
+def constructive_solution_by_zones(ind):
+    for j in range(args.L):
+        ind[j] = 0
+    for station in range(args.E):
+        mask_matrix = relevance_substations[station, :]  # .astype(bool)
+        mask = np.where(mask_matrix == 0, 1, 0)  # invert pertinence matrix to get a mask
+        masked_array = ma.array(ind, mask=mask)
+        last_station_added = -1
+        while satisfiability(ind):
+            station_type = np.random.randint(1, 3)
+            last_station_added = np.random.choice(np.where(masked_array == 0)[0])
+            ind[last_station_added] = station_type
+        ind[last_station_added] = 0  # because it is not satisfacibility
+    return ind,
 
 
 def fitness_mo(solution):

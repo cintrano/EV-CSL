@@ -2,8 +2,8 @@
 from deap import base
 from deap import creator
 from deap import tools
+
 from operators import crossovers as cross, mutations as mut
-import main
 import problem
 import numpy as np
 
@@ -104,7 +104,6 @@ def print_stats(fits):
     print("  Std (%s, %s)" % (std_1, std_2))
 
 
-# Press the green button in the gutter to run the script.
 def execute(toolbox, pop_size, fitness, cxpb=0.5, mutpb=0.2, max_iter=100):
     """GA algorithm
     :param toolbox: Deap toolbox instance
@@ -116,10 +115,15 @@ def execute(toolbox, pop_size, fitness, cxpb=0.5, mutpb=0.2, max_iter=100):
     :return:
     """
     pop = toolbox.population(n=pop_size)
+    if args.generation == 'ZONES':
+        for ind in pop:
+            toolbox.generation(ind)
+    print(pop)
     toolbox.register("evaluate", fitness)
     # Repair the initial population
     for ind in pop:
         toolbox.repair(ind)
+    print('-')
     # Evaluate the entire population
     # fitnesses = list(map(toolbox.evaluate, pop))
     fitnesses = toolbox.map(toolbox.evaluate, pop)
@@ -130,10 +134,12 @@ def execute(toolbox, pop_size, fitness, cxpb=0.5, mutpb=0.2, max_iter=100):
     # Variable keeping track of the number of generations
     g = 0
     # Begin the evolution
+    print('.', end='')
     while g < max_iter:  #max(fits) < 100 and g < max_iter:
         # A new generation
         g = g + 1
-        # if g % 50 == 0:
+        if g % 50 == 0:
+            print('.', end='')
         # operators    print("-- Generation %i --" % g)
         # Select the next generation individuals
         offspring = toolbox.select(pop, len(pop))
@@ -171,6 +177,8 @@ toolbox = base.Toolbox()
 
 def run_nsga2(fitness, pop_size, sel, cross, mut, repl, cross_prob=0.5, mut_prob=0.2, max_iter=1000):
     global toolbox
+    if args.generation == 'ZONES':
+        toolbox.register("generation", problem.constructive_solution_by_zones)
     toolbox.register("repair", problem.repair)
     toolbox.register("replacement", tools.selNSGA2, k=pop_size)
     configure_individual(toolbox)
@@ -180,6 +188,8 @@ def run_nsga2(fitness, pop_size, sel, cross, mut, repl, cross_prob=0.5, mut_prob
 
 def run_spea2(fitness, pop_size, sel, cross, mut, repl, cross_prob=0.5, mut_prob=0.2, max_iter=1000):
     global toolbox
+    if args.generation == 'ZONES':
+        toolbox.register("generation", problem.constructive_solution_by_zones)
     toolbox.register("repair", problem.repair)
     toolbox.register("replacement", tools.selSPEA2, k=pop_size)
     configure_individual(toolbox)

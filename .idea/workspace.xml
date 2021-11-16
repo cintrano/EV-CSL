@@ -4,14 +4,9 @@
     <list default="true" id="bcf2213e-1488-4050-9a65-bd5ad662d314" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/arguments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/calc_distance_matrix/ExA.ssv" beforeDir="false" afterPath="$PROJECT_DIR$/data/calc_distance_matrix/ExA.ssv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/calc_distance_matrix/dist_electric_substation.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/calc_distance_matrix/dist_electric_substation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/calc_distance_matrix/subestaciones.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/calc_distance_matrix/subestaciones.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ga_mo.py" beforeDir="false" afterPath="$PROJECT_DIR$/ga_mo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operators/crossovers.py" beforeDir="false" afterPath="$PROJECT_DIR$/operators/crossovers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operators/mutations.py" beforeDir="false" afterPath="$PROJECT_DIR$/operators/mutations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics/graph_map_prints.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/graph_map_prints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/problem.py" beforeDir="false" afterPath="$PROJECT_DIR$/problem.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +35,7 @@
       <recent name="$PROJECT_DIR$/operators" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.plots2">
+  <component name="RunManager" selected="Python.test dummy cross consructuve">
     <configuration name="main SPEA2" type="PythonConfigurationType" factoryName="Python">
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -146,6 +141,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test dummy cross consructuve" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo NSGA2 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-generation ZONES --ga-sel TOURNAMENT2 --ga-cross ZONES --ga-mut CUSTOM --ga-repl mu_lambda --radius 500 --seed 666 --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs --iter 100 --pop 8" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test dummy cross" type="PythonConfigurationType" factoryName="Python">
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -159,7 +175,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo NSGA2 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross ZONES --ga-mut CUSTOM --ga-repl mu_lambda --radius 500 --seed 666 --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs --iter 100 --pop 20" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo NSGA2 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross ZONES --ga-mut CUSTOM --ga-repl mu_lambda --radius 500 --seed 666 --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs --iter 100 --pop 8" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -210,12 +226,13 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.main SPEA2" />
-      <item itemvalue="Python.test" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.test SPEA2" />
-      <item itemvalue="Python.test dummy" />
+      <item itemvalue="Python.test dummy cross consructuve" />
       <item itemvalue="Python.test dummy cross" />
+      <item itemvalue="Python.test dummy" />
+      <item itemvalue="Python.test" />
       <item itemvalue="Python.montecarlo" />
       <item itemvalue="Python.plots2" />
     </list>
@@ -247,5 +264,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
