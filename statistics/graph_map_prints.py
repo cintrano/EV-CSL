@@ -33,10 +33,10 @@ def add_stations(filename, G, col_map, val_map, shp_map):
         idx = i
         lat = float(data[0])
         lon = float(data[1])
-        col_map[idx] = 'blue'
+        col_map[idx] = 'gray'
         val_map[idx] = 300
         shp_map[idx] = 's'
-        G.add_node(idx, pos=(lon, lat), color='blue', shape='s', size=300)
+        G.add_node(idx, pos=(lon, lat), color='gray', shape='s', size=300)
         i += 1
     file.close()
 
@@ -104,7 +104,7 @@ def print_graph(graph, filename, col_map, val_map, shp_map):
     #plt.show()
 
 
-def main(indexes, filename='map.pdf'):
+def main(indexes, filename='map.pdf', color_sol='orange'):
     colors = ["orangered", "olivedrab", "darkgoldenrod",
               "lightseagreen", "darkorchid", "royalblue"]
     colors_algo = ["red", "green", "purple"]
@@ -126,7 +126,7 @@ def main(indexes, filename='map.pdf'):
 
     facilities = read_facilities(LOCATION_OF_FACILITIES)
 
-    add_solution(G, col_map, val_map, facilities, indexes, 'orange')
+    add_solution(G, col_map, val_map, facilities, indexes, color_sol)
 
     for node in nodes:
         col_map[str(node['id'])] = 'black'

@@ -55,14 +55,17 @@ def configure_crossover(toolbox, mode):
     elif mode == 'CUPCAP':
         toolbox.register("mate", cross.cupcap)
     elif mode == 'ZONES':
-        toolbox.register("mate", cross.cross_by_substations_zone)
+        toolbox.register("mate", cross.cross_by_substations_zones)
     else:
         toolbox.register("mate", cross.cross_none)
 
 
 def configure_mutation(toolbox, mode):
-    toolbox.register("mutate_custom", mut.custom)
-    if mode == 'SHAKING':
+    if mode == 'CUSTOM':
+        toolbox.register("mutate", mut.custom)
+    elif mode == 'ZONES':
+        toolbox.register("mutate", mut.mutation_by_substation_zones) #, p=1.)
+    elif mode == 'SHAKING':
         toolbox.register("mutate", mut.shaking)
     elif mode == 'NRAND':
         toolbox.register("mutate", mut.nrand)
@@ -145,8 +148,7 @@ def execute(toolbox, pop_size, fitness, cxpb=0.5, mutpb=0.2, max_iter=100):
 
         for mutant in offspring:
             if np.random.random() < mutpb:
-                # toolbox.mutate(mutant)
-                toolbox.mutate_custom(mutant)
+                toolbox.mutate(mutant)
                 toolbox.repair(mutant)
                 del mutant.fitness.values
         # Evaluate the individuals

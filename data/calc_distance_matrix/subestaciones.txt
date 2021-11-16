@@ -1,4 +1,4 @@
-Los Ramos,z36.7288589,-4.4727979,,,29190,Málaga
+Los Ramos,36.7288589,-4.4727979,,,29190,Málaga
 Montes,36.7451134,-4.3890905,Diseminado R 13,4,29193,Málaga
 Miraflores,36.7275772,-4.3592567,Calle Extremadura,16,29018,Málaga 
 Centro,36.7249603,-4.4244585,Calle Don Rodrigo,16,29008,Málaga 

@@ -4,7 +4,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('C', type=int, help='number of clients')
 parser.add_argument('L', type=int, help='number of possible locations')
-parser.add_argument('E', type=int, help='numdest='F', ber of neighborhoodposition to aprox.')
+parser.add_argument('E', type=int, help='numdest='F', ber of neighborhood position to aprox.')
 parser.add_argument('matrix_file', nargs='?')
 parser.add_argument('energy_matrix_file', nargs='?')
 parser.add_argument('customer_file', nargs='?')

@@ -34,3 +34,21 @@ def cross_by_substations_zone(ind1, ind2):
     i1[mask] = i2[mask]
     i2[mask] = x
     return i1, i2
+
+
+def cross_by_substations_zones(ind1, ind2, k=7):
+    """Swap an entire zone of action by a random electric substation
+    :param ind1: Individual
+    :param ind2: Individual
+    :param k: number of substations to swap
+    :return: The crossed individuals
+    """
+    i1 = np.copy(ind1)
+    i2 = np.copy(ind2)
+    station = np.random.choice(range(args.E), size=k, replace=False)
+    mask_matrix = problem.relevance_substations[station, :].astype(bool)
+    mask = mask_matrix[0]
+    x = np.copy(i1[mask])
+    i1[mask] = np.copy(i2[mask])
+    i2[mask] = x
+    return i1, i2

@@ -39,6 +39,7 @@ if __name__ == '__main__':
         random.seed(a=13 + args.seed)
         fits, pop = [], []
         if args.algorithm == "NSGA2":
+            print("Running NSGA2")
             fits, pop = ga_mo.run_nsga2(problem.fitness_mo, args.POP_SIZE, args.sel_mode, args.cross_mode, args.mut_mode,
                               args.repl_mode, cross_prob=args.prob_cross, mut_prob=args.prob_mut, max_iter=args.iter)
         if args.algorithm == "SPEA2":
@@ -50,7 +51,7 @@ if __name__ == '__main__':
             write_population(pop, str(args.seed) + '-' + POPULATION_FILE)
         # change sign of first objective to convert it into a minimization
         f = [[(-1.0 * x), y] for x, y in fits]
-        nadir_x, nadir_y = 100, 100000000  # TODO: Change to a more fixed nadir point
+        nadir_x, nadir_y = 0, 100000000  # TODO: Change to a more fixed nadir point
         nadir_point = [nadir_x, nadir_y]
         hv = hypervolume(f)  #, [nadir_x, nadir_y])
         hv_value = hv.compute(nadir_point)

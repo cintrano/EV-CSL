@@ -35,7 +35,7 @@ def load_map_ssv(filename):
 ss = np.genfromtxt('subestaciones.txt', delimiter=',')
 
 print(len(ss))
-print(ss[0])
+print(len(ss[0]))
 
 nodes, arcs = load_map_ssv('malaga-city.ssv')
 
