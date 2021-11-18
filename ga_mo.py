@@ -15,7 +15,7 @@ def configure_individual(toolbox):
     creator.create("FitnessMaxMin", base.Fitness, weights=(1.0, -1.0))
     creator.create("Individual", np.ndarray, fitness=creator.FitnessMaxMin)
 
-    toolbox.register("attr_int", np.random.randint, 0, 2)
+    toolbox.register("attr_int", np.random.randint, 0, 3)
     toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_int, n=args.L)
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
@@ -25,6 +25,8 @@ def configure_selection(toolbox, mode):
         toolbox.register("select", tools.selTournament, tournsize=2)
     elif mode == 'TOURNAMENT3':
         toolbox.register("select", tools.selTournament, tournsize=3)
+    elif mode == 'TOURNAMENTDC':
+        toolbox.register("select", tools.selTournamentDCD)
     elif mode == 'RANDOM':
         toolbox.register("select", tools.selRandom)
     elif mode == 'BEST':
@@ -64,7 +66,7 @@ def configure_mutation(toolbox, mode):
     if mode == 'CUSTOM':
         toolbox.register("mutate", mut.custom)
     elif mode == 'ZONES':
-        toolbox.register("mutate", mut.mutation_by_substation_zones) #, p=1.)
+        toolbox.register("mutate", mut.mutation_by_substation_zones, number_of_stations=args.mut_param)
     elif mode == 'SHAKING':
         toolbox.register("mutate", mut.shaking)
     elif mode == 'NRAND':
@@ -131,6 +133,7 @@ def execute(toolbox, pop_size, fitness, cxpb=0.5, mutpb=0.2, max_iter=100):
         ind.fitness.values = fit
     # Extracting all the fitnesses of
     fits = [ind.fitness.values for ind in pop]
+    print(fits)
     # Variable keeping track of the number of generations
     g = 0
     # Begin the evolution

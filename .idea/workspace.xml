@@ -6,7 +6,7 @@
       <change beforePath="$PROJECT_DIR$/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/arguments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ga_mo.py" beforeDir="false" afterPath="$PROJECT_DIR$/ga_mo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem.py" beforeDir="false" afterPath="$PROJECT_DIR$/problem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/operators/mutations.py" beforeDir="false" afterPath="$PROJECT_DIR$/operators/mutations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +24,40 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/statistics" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/statistics/plots3.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/outputs" />
       <recent name="$PROJECT_DIR$/statistics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/operators" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test dummy cross consructuve">
+  <component name="RunManager" selected="Python.test dummy cross consructuve 1">
+    <configuration name="dummy test" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/statistics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/statistics/plots3.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv  --input ../inputs  --radius 500 --seed 666 --qos-alpha 0.6 --qos-beta 0 --qos-gamma 0.4" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main SPEA2" type="PythonConfigurationType" factoryName="Python">
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -112,7 +134,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/statistics/plots2.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv  --input ../inputs" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -141,7 +163,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test dummy cross consructuve" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="test dummy cross consructuve 1" type="PythonConfigurationType" factoryName="Python">
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -154,7 +176,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo NSGA2 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-generation ZONES --ga-sel TOURNAMENT2 --ga-cross ZONES --ga-mut CUSTOM --ga-repl mu_lambda --radius 500 --seed 666 --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs --iter 100 --pop 8" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo NSGA2 --ga-sel None --prob-cross 0.7 --prob-mut 1 --ga-generation ZONES --ga-sel TOURNAMENTDC --ga-cross ZONES --ga-mut ZONES --ga-mut-param 1 --ga-repl mu_lambda --radius 500 --seed 666 --qos-alpha 0.6 --qos-beta 0 --qos-gamma 0.4 --input ./inputs --output ./outputs --iter 100 --pop 8" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test dummy cross consructuve 7" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo NSGA2 --ga-sel None --prob-cross 0.7 --prob-mut 1 --ga-generation ZONES --ga-sel TOURNAMENTDC --ga-cross ZONES --ga-mut ZONES --ga-mut-param 7 --ga-repl mu_lambda --radius 500 --seed 666 --qos-alpha 0.6 --qos-beta 0 --qos-gamma 0.4 --input ./inputs --output ./outputs --iter 100 --pop 8" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -229,10 +272,12 @@
       <item itemvalue="Python.main SPEA2" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.test SPEA2" />
-      <item itemvalue="Python.test dummy cross consructuve" />
+      <item itemvalue="Python.test dummy cross consructuve 7" />
+      <item itemvalue="Python.test dummy cross consructuve 1" />
       <item itemvalue="Python.test dummy cross" />
       <item itemvalue="Python.test dummy" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.dummy test" />
       <item itemvalue="Python.montecarlo" />
       <item itemvalue="Python.plots2" />
     </list>

@@ -50,6 +50,9 @@ if __name__ == '__main__':
         duration = end - start
         print('Running Time:', start, end, duration.seconds)
 
+        for f in fits:
+            print(f)
+
         # Writting files
         if args.write_files:
             write_fitness_values(fits, str(args.seed) + '-' + FITNESS_FILE)
@@ -57,7 +60,7 @@ if __name__ == '__main__':
         # Calculating the HV
         # change sign of first objective to convert it into a minimization
         f = [[(-1.0 * x), y] for x, y in fits]
-        nadir_x, nadir_y = 0, 100000000  # TODO: Change to a more fixed nadir point
+        nadir_x, nadir_y = 10, 100000000  # TODO: Change to a more fixed nadir point
         nadir_point = [nadir_x, nadir_y]
         hv = hypervolume(f)  #, [nadir_x, nadir_y])
         hv_value = hv.compute(nadir_point)

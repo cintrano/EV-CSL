@@ -53,6 +53,7 @@ parser.add_argument('--ga-sel', type=str, dest='sel_mode', nargs='?', help='')
 parser.add_argument('--ga-cross', type=str, dest='cross_mode', nargs='?', help='')
 parser.add_argument('--ga-mut', type=str, dest='mut_mode', nargs='?', help='')
 parser.add_argument('--ga-mut-prob', type=float, dest='mut_prob', nargs='?', help='')
+parser.add_argument('--ga-mut-param', type=int, dest='mut_param', nargs='?', help='')
 parser.add_argument('--ga-repl', type=str, dest='repl_mode', nargs='?', help='')
 
 parser.add_argument('--prob-cross', type=float, dest='prob_cross', nargs='?', help='probability of crossover')
