@@ -10,8 +10,12 @@ python3 -m pip install -r requirements.txt -f libs
 
 ### Generate libraries
 
+In the case that you must download the libraries again
+
 ```console
 pip freeze --local > requirements.txt
+mkdir libs
+cd libs/
 pip download -r ../requirements.txt --no-index --find-links `pwd`
 ```
 
