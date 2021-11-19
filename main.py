@@ -32,8 +32,8 @@ def write_population(data, filename=POPULATION_FILE):
 
 
 if __name__ == '__main__':
-    if args.seed:
-        print(args)
+    print(args)
+    if args.seed or args.seed == 0:
         start = datetime.datetime.now()
         np.random.seed(seed=13 + args.seed)
         random.seed(a=13 + args.seed)

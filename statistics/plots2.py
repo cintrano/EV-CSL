@@ -1,10 +1,14 @@
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+
+# import graph_map_prints as gmp
 
 from my_utilities import simple_cull, dominates
-
+from matplotlib.lines import Line2D
 import pygmo
+from pymoo.factory import get_performance_indicator
 
 distances_energy_stations = np.genfromtxt(f'{os.path.dirname(__file__)}/ExA.ssv', delimiter=' ', skip_header=0)
 
@@ -47,14 +51,7 @@ def print_dict_ssv(data, filename):
 
 
 fig, ((ax, ax1, ax2), (ax, ax3, ax4)) = plt.subplots(2, 3, figsize=(15, 5))
-'''
-fig = plt.figure()
-fig1 = plt.figure()
-fig2 = plt.figure()
-ax = fig.add_subplot(111)#, projection='2d')
-ax1 = fig1.add_subplot(111)#, projection='2d')
-ax2 = fig2.add_subplot(111)#, projection='2d')
-'''
+
 
 colors = plt.cm.rainbow(np.linspace(0, 1, 30))
 
@@ -135,44 +132,111 @@ def load_data(path, lower, upper, plot, marker):
     return fit, sols
 
 
-path = '/home/cintrano/_current/EV-CSL-results/random-generation/'
-nsga2_data, nsga2_sols = load_data(path + 'NSGA2', 60, 90, [ax, ax1], marker='o')
-spea2_data, spea2_sols = load_data(path + 'SPEA2', 30, 60, [ax, ax1], marker='+')
-
-path = '/home/cintrano/_current/EV-CSL-results/constructive-generation/'
-nsga2_generation_data, nsga2_generation_sols = load_data(path + 'NSGA2', 60, 90, [ax, ax2], marker='s')
-spea2_generation_data, spea2_generation_sols = load_data(path + 'SPEA2', 30, 60, [ax, ax2], marker='^')
-
-
-path = '/home/cintrano/_current/EV-CSL-results/random-generation-mut7/'
-m7nsga2_data, m7nsga2_sols = load_data(path + 'NSGA2', 60, 90, [ax, ax3], marker='x')
-m7spea2_data, m7spea2_sols = load_data(path + 'SPEA2', 30, 60, [ax, ax3], marker='d')
-
-path = '/home/cintrano/_current/EV-CSL-results/constructive-generation-mut7/'
-m7nsga2_generation_data, m7nsga2_generation_sols = load_data(path + 'NSGA2', 60, 90, [ax, ax4], marker='1')
-m7spea2_generation_data, m7spea2_generation_sols = load_data(path + 'SPEA2', 30, 60, [ax, ax4], marker='v')
+def prepare_dataframe(data, algo, label, marker):
+    """Create a dataframe from the fitness data
+    :param data: fitness value of the population
+    :param algo: algorithm
+    :param label: experiment label
+    :param marker: marker to plot
+    :return: the DataFrame
+    """
+    df = pd.DataFrame(data, columns=['f1', 'f2'])
+    df['algorithm'] = algo
+    df['label'] = label
+    df['marker'] = marker
+    df['color'] = 'b'
+    return df
 
 
+# Load data
 
-print(np.count_nonzero(nsga2_sols) / (30*20), np.count_nonzero(spea2_sols) / (30*20), np.count_nonzero(nsga2_generation_sols) / (30*20), np.count_nonzero(spea2_generation_sols) / (30*20))
+df = pd.DataFrame(columns=['algorithm', 'label', 'f1', 'f2', 'marker'])
+
+path_experiments = '/home/cintrano/_current/EV-CSL-results/'
+
+label = 'random-generation'
+nsga2_data, nsga2_sols = load_data(path_experiments + label + '/' 'NSGA2', 20, 30, [ax, ax1], marker='o')
+df = df.append(prepare_dataframe(nsga2_data, 'NSGA2', label, 'o'))
+
+spea2_data, spea2_sols = load_data(path_experiments + label + '/' 'SPEA2', 10, 20, [ax, ax1], marker='+')
+df = df.append(prepare_dataframe(spea2_data, 'SPEA2', label, '+'))
+
+label = 'constructive-generation'
+nsga2_generation_data, nsga2_generation_sols = load_data(path_experiments + label + '/' 'NSGA2', 20, 30, [ax, ax2], marker='s')
+df = df.append(prepare_dataframe(nsga2_generation_data, 'NSGA2', label, 's'))
+spea2_generation_data, spea2_generation_sols = load_data(path_experiments + label + '/' 'SPEA2', 10, 20, [ax, ax2], marker='^')
+df = df.append(prepare_dataframe(spea2_generation_data, 'SPEA2', label, '^'))
+
+
+label = 'random-generation-mut7'
+m7nsga2_data, m7nsga2_sols = load_data(path_experiments + label + '/' 'NSGA2', 20, 30, [ax, ax3], marker='x')
+df = df.append(prepare_dataframe(m7nsga2_data, 'NSGA2', label, 'x'))
+m7spea2_data, m7spea2_sols = load_data(path_experiments + label + '/' 'SPEA2', 10, 20, [ax, ax3], marker='d')
+df = df.append(prepare_dataframe(m7spea2_data, 'SPEA2', label, 'd'))
+
+label = 'constructive-generation-mut7'
+m7nsga2_generation_data, m7nsga2_generation_sols = load_data(path_experiments + label + '/' 'NSGA2', 20, 30, [ax, ax4], marker='1')
+df = df.append(prepare_dataframe(m7nsga2_generation_data, 'NSGA2', label, '1'))
+m7spea2_generation_data, m7spea2_generation_sols = load_data(path_experiments + label + '/' 'SPEA2', 10, 20, [ax, ax4], marker='v')
+df = df.append(prepare_dataframe(m7spea2_generation_data, 'SPEA2', label, 'v'))
 
 
 # Plot
 plt.xlabel('Quality of service')
 plt.ylabel('Cost of installation')
 
-from matplotlib.patches import Patch
-from matplotlib.lines import Line2D
-legend_elements = [Line2D([0], [0], marker='o', color='w', markerfacecolor='black', label='NSGA2-rand'),
-                   Line2D([0], [0], marker='+', color='w', markerfacecolor='black', label='SPEA2-rand'),
-                   Line2D([0], [0], marker='s', color='w', markerfacecolor='black', label='NSGA2-constr'),
-                   Line2D([0], [0], marker='^', color='w', markerfacecolor='black', label='SPEA2-constr')]
-ax.legend(handles=legend_elements)  # , loc='center')
+# df.groupby(by=['algorithm', 'label']).sum()
+#for index, row in df.iterrows():
+
+legend_elements = []
+for a in df['algorithm'].unique().tolist():
+    for l in df['label'].unique().tolist():
+        q = f'algorithm == "{a}" and label == "{l}"'
+        marker = df.query(q).iloc[[0]]['marker'].values[0]
+        color = df.query(q).iloc[[0]]['color'].values[0]
+        legend_elements.append(Line2D([0], [0], marker=marker, color='w', markerfacecolor='black', label=f'{a}-{l}'))
+ax.legend(handles=legend_elements, loc='center')
 
 
 plt.savefig('pareto_front_sol.png', dpi=300, bbox_inches='tight')  # transparent=True,
-plt.show()
+# plt.show()
+plt.close()
 
+
+def print_pareto_hv(data, nadir_point, ax, label, relative=1., color='red', marker='o'):
+    """
+    :param data: Numpy array
+    :param nadir_point:
+    :param ax:
+    :param label:
+    :param color:
+    :param marker:
+    :return:
+    """
+    d = data.copy()
+    d[:, 0] *= -1  # to minimize the first objective and compute the hv
+    inputPoints = d.tolist()
+    paretoPoints, dominatedPoints = simple_cull(inputPoints, dominates)
+    dp = np.array(list(dominatedPoints))
+    pp = np.array(list(paretoPoints))
+    # print(pp.shape,dp.shape)
+    hv = pygmo.hypervolume(pp)
+    print(label, '&', hv.compute(nadir_point)/relative)
+    pp[:, 0] *= -1  # undo the change
+    ax.scatter(pp[:, 0], pp[:, 1], color=color, marker=marker)
+    return pp
+
+
+def compute_hv(data, nadir_point):
+    d = data.copy()
+    d[:, 0] *= -1  # to minimize the first objective and compute the hv
+    inputPoints = d.tolist()
+    paretoPoints, dominatedPoints = simple_cull(inputPoints, dominates)
+    dp = np.array(list(dominatedPoints))
+    pp = np.array(list(paretoPoints))
+    # print(pp.shape,dp.shape)
+    hv = pygmo.hypervolume(pp)
+    return hv.compute(nadir_point), pp
 
 
 
@@ -181,37 +245,37 @@ ax = fig.add_subplot(111)  # , projection='2d')
 
 
 all_fits = np.vstack((nsga2_data, spea2_data, nsga2_generation_data, spea2_generation_data))
-nadir_point = [np.max(all_fits[:, 0]), np.max(all_fits[:, 1])]
+nadir_point = [df['f1'].min() * -1, df['f2'].max()]
 print("Nadir point:", nadir_point)
 
-
-def print_pareto_hv(data, nadir_point, ax, label, color='red', marker='o'):
-    inputPoints = data.tolist()
-    paretoPoints, dominatedPoints = simple_cull(inputPoints, dominates)
-    dp = np.array(list(dominatedPoints))
-    pp = np.array(list(paretoPoints))
-    # print(pp.shape,dp.shape)
-    ax.scatter(pp[:, 0], pp[:, 1], color=color, marker=marker)
-    pp[:, 0] *= -1
-    hv = pygmo.hypervolume(pp)
-    print(label, '&', hv.compute(nadir_point))
-    return pp
+pareto_optimal_hv, pareto_optimal_front = compute_hv(df[['f1', 'f2']].values, nadir_point=nadir_point)
+print('Hv of pareto optimal: ', pareto_optimal_hv)
 
 
-pp_nsga2_rand = print_pareto_hv(nsga2_data, nadir_point, ax, 'NSGA2-rand', color='red', marker='o')
-pp_spea2_rand = print_pareto_hv(spea2_data, nadir_point, ax, 'SPEA2-rand', color='blue', marker='+')
-pp_nsga2_const = print_pareto_hv(nsga2_generation_data, nadir_point, ax, 'NSGA2-const', color='green', marker='s')
-pp_spea2_const = print_pareto_hv(spea2_generation_data, nadir_point, ax, 'SPEA2-const', color='black', marker='^')
+colors = ['red', 'blue', 'green', 'pink', 'black', 'yellow', 'gray', 'cyan']
+next_color = 0
+for a in df['algorithm'].unique().tolist():
+    for l in df['label'].unique().tolist():
+        q = f'algorithm == "{a}" and label == "{l}"'
+        marker = df.query(q).iloc[[0]]['marker'].values[0]
+        c = colors[next_color]
+        df.loc[(df.algorithm == a) & (df.label == l), 'color'] = c
+        tag = a + '-' + l
+        _ = print_pareto_hv(df.query(q)[['f1', 'f2']].values, nadir_point, ax, tag, relative=pareto_optimal_hv, color=c, marker=marker)
+        next_color = (next_color + 1) % len(colors)
 
 
 plt.xlabel('Quality of service')
 plt.ylabel('Cost of installation')
 
 
-legend_elements = [Line2D([0], [0], marker='o', color='w', markerfacecolor='red', label='NSGA2-rand'),
-                   Line2D([0], [0], marker='+', color='w', markerfacecolor='blue', label='SPEA2-rand'),
-                   Line2D([0], [0], marker='s', color='w', markerfacecolor='green', label='NSGA2-constr'),
-                   Line2D([0], [0], marker='^', color='w', markerfacecolor='black', label='SPEA2-constr')]
+legend_elements = []
+for a in df['algorithm'].unique().tolist():
+    for l in df['label'].unique().tolist():
+        q = f'algorithm == "{a}" and label == "{l}"'
+        marker = df.query(q).iloc[[0]]['marker'].values[0]
+        color = df.query(q).iloc[[0]]['color'].values[0]
+        legend_elements.append(Line2D([0], [0], marker=marker, color=color, markerfacecolor=color, label=f'{a}-{l}'))
 ax.legend(handles=legend_elements)
 
 
@@ -219,108 +283,22 @@ plt.savefig('pareto_front.png', dpi=300, bbox_inches='tight')  # transparent=Tru
 plt.show()
 
 
+# MO Indicators
 
-'''
+gd = get_performance_indicator("gd", pareto_optimal_front)
+gd_plus = get_performance_indicator("gd+", pareto_optimal_front)
+igd = get_performance_indicator("igd", pareto_optimal_front)
+igd_plus = get_performance_indicator("igd+", pareto_optimal_front)
 
+df_mo_metrics = pd.DataFrame(columns=['algorithm', 'label', 'hv', 'gd', 'gd+', 'igd', 'igd+'])
+for a in df['algorithm'].unique().tolist():
+    for l in df['label'].unique().tolist():
+        q = f'algorithm == "{a}" and label == "{l}"'
+        data = df.query(q)[['f1', 'f2']].values
+        hv, pp = compute_hv(data, nadir_point)
+        hv_rel = hv / pareto_optimal_hv
+        line = [[a, l, hv_rel, gd.do(pp), gd_plus.do(pp), igd.do(pp), igd_plus.do(pp)]]
+        df_line = pd.DataFrame(line, columns=['algorithm', 'label', 'hv', 'gd', 'gd+', 'igd', 'igd+'])
+        df_mo_metrics = df_mo_metrics.append(df_line)
 
-
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-
-fig = plt.figure()
-#ax = fig.add_subplot(111, projection='3d')
-ax = fig.add_subplot(111)#, projection='2d')
-
-# All
-#nadir_point = [np.max(whole_data[:, 0])+1, np.max(whole_data[:, 1])+1]
-data = np.vstack((nsga2_data, greedy_data))
-inputPoints = data.tolist()
-paretoPoints, dominatedPoints = simple_cull(inputPoints, dominates)
-dp = np.array(list(dominatedPoints))
-pp = np.array(list(paretoPoints))
-
-from pymoo.factory import get_performance_indicator
-
-gd = get_performance_indicator("gd", pp)
-gd_plus = get_performance_indicator("gd+", pp)
-igd = get_performance_indicator("igd", pp)
-igd_plus = get_performance_indicator("igd+", pp)
-
-hv = hypervolume(pp)
-hv_opt = hv.compute(nadir_point)
-print('Pareto opt.', '&', hv_opt)
-print("---------")
-#print("GD", "EDS=", gd.do(greedy_data), "NSGAII=", gd.do(nsga2_data))
-print("Pareto opt. &", "%.2f" % gd.do(pp), "&", "%.2f" % gd_plus.do(pp), "&", "%.2f" % igd.do(pp), "&", "%.2f" % igd_plus.do(pp))
-print("NSGA-II &", "%.2f" % gd.do(pp_nsga2), "&", "%.2f" % gd_plus.do(pp_nsga2), "&", "%.2f" % igd.do(pp_nsga2), "&", "%.2f" % igd_plus.do(pp_nsga2))
-print("EDS &", "%.2f" % gd.do(greedy_data), "&", "%.2f" % gd_plus.do(greedy_data), "&", "%.2f" % igd.do(greedy_data), "&", "%.2f" % igd_plus.do(greedy_data))
-
-print("---------")
-
-
-
-print("---------")
-
-fig = plt.figure()
-#ax = fig.add_subplot(111, projection='3d')
-ax = fig.add_subplot(111)#, projection='2d')
-
-ax.scatter(nsga2_sol_list[0][:, 0]*-1, nsga2_sol_list[0][:, 1], color='green', marker='.')
-ax.scatter(nsga2_sol_list[1][:, 0]*-1, nsga2_sol_list[1][:, 1], color='yellow', marker='.')
-
-plt.show()
-
-
-i = 0
-print(nadir_point)
-hv_list = []
-hvr_list = []
-gd_list = []
-gd_plus_list = []
-igd_list = []
-igd_plus_list = []
-
-for s in nsga2_sol_list:
-    #print(s)
-    x = s
-    inputPoints = x.tolist()
-    paretoPoints, dominatedPoints = simple_cull(inputPoints, dominates)
-    dp = np.array(list(dominatedPoints))
-    pp = np.array(list(paretoPoints))
-    hv = hypervolume(pp)
-    hv_d = hv.compute(nadir_point)
-    hv_list.append(hv_d)
-    hvr_value = hv_d/hv_opt
-    hv_value = "{:.2e}".format(hv_d)
-    hvr_list.append(hvr_value)
-    gd_value = round(gd.do(x), 2)
-    gd_list.append(gd_value)
-    gd_plus_value = round(gd_plus.do(x), 2)
-    gd_plus_list.append(gd_plus_value)
-    igd_value = round(igd.do(x), 2)
-    igd_list.append(igd_value)
-    igd_plus_value = round(igd_plus.do(x), 2)
-    igd_plus_list.append(igd_plus_value)
-    print(f"{i} & {hvr_value} & {gd_value} & {gd_plus_value} & {igd_value} & {igd_plus_value} \\\\")
-    i += 1
-
-print("---------")
-print("---------")
-
-
-from scipy import stats
-from scipy.stats import iqr
-x = hv_list
-print(f'{"{:.2e}".format(np.min(x))} & {"{:.2e}".format(np.max(x))} & {"{:.2e}".format(np.mean(x))} & {"{:.2e}".format(np.std(x))} & {"{:.2e}".format(np.median(x))} & {"{:.2e}".format(iqr(x))} \\\\')
-x = hvr_list
-print(f'{"{:.2e}".format(np.min(x))} & {"{:.2e}".format(np.max(x))} & {"{:.2e}".format(np.mean(x))} & {"{:.2e}".format(np.std(x))} & {"{:.2e}".format(np.median(x))} & {"{:.2e}".format(iqr(x))} \\\\')
-x = gd_list
-print(f'{"{:.2e}".format(np.min(x))} & {"{:.2e}".format(np.max(x))} & {"{:.2e}".format(np.mean(x))} & {"{:.2e}".format(np.std(x))} & {"{:.2e}".format(np.median(x))} & {"{:.2e}".format(iqr(x))} \\\\')
-x = gd_plus_list
-print(f'{"{:.2e}".format(np.min(x))} & {"{:.2e}".format(np.max(x))} & {"{:.2e}".format(np.mean(x))} & {"{:.2e}".format(np.std(x))} & {"{:.2e}".format(np.median(x))} & {"{:.2e}".format(iqr(x))} \\\\')
-x = igd_list
-print(f'{"{:.2e}".format(np.min(x))} & {"{:.2e}".format(np.max(x))} & {"{:.2e}".format(np.mean(x))} & {"{:.2e}".format(np.std(x))} & {"{:.2e}".format(np.median(x))} & {"{:.2e}".format(iqr(x))} \\\\')
-x = igd_plus_list
-print(f'{"{:.2e}".format(np.min(x))} & {"{:.2e}".format(np.max(x))} & {"{:.2e}".format(np.mean(x))} & {"{:.2e}".format(np.std(x))} & {"{:.2e}".format(np.median(x))} & {"{:.2e}".format(iqr(x))} \\\\')
-
-'''
+print(df_mo_metrics.to_latex(index=False, float_format='%.2f'))

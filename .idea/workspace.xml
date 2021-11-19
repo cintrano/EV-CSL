@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bcf2213e-1488-4050-9a65-bd5ad662d314" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/arguments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ga_mo.py" beforeDir="false" afterPath="$PROJECT_DIR$/ga_mo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operators/mutations.py" beforeDir="false" afterPath="$PROJECT_DIR$/operators/mutations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics/plots2.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/plots2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +34,7 @@
       <recent name="$PROJECT_DIR$/operators" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test dummy cross consructuve 1">
+  <component name="RunManager" selected="Python.test dummy cross consructuve 7">
     <configuration name="dummy test" type="PythonConfigurationType" factoryName="Python">
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -125,9 +123,6 @@
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/statistics" />
       <option name="IS_MODULE_SDK" value="true" />
