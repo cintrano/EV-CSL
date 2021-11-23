@@ -25,7 +25,7 @@ parser.add_argument('--output', dest='out_path', help='path of the output files'
 parser.add_argument('--write-output', dest='write_files', type=bool, default=True, nargs='?', help='no create files')
 
 # Ending process
-parser.add_argument('--timer', type=int, dest='MAX_TIME', nargs='?', help='max time of the execution')
+parser.add_argument('--timer', type=int, dest='max_time', nargs='?', help='max time of the execution')
 parser.add_argument('--iter', type=int, dest='iter', help='max time of the execution')
 
 # Random seed

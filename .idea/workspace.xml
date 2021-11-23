@@ -2,14 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcf2213e-1488-4050-9a65-bd5ad662d314" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/random_search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics/plots3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics/plots4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics/statistics_EvoApps2022.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics/time_log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/arguments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics/plots2.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/plots2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics/my_utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/my_utilities.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,19 +35,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/statistics/plots3.py" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/NNNNNNNNNNNNN/print_check.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/outputs" />
       <recent name="$PROJECT_DIR$/statistics" />
+      <recent name="$PROJECT_DIR$/outputs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/operators" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test dummy cross consructuve 7">
+  <component name="RunManager" selected="Python.print_check">
     <configuration name="dummy test" type="PythonConfigurationType" factoryName="Python">
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,6 +136,9 @@
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/statistics" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -130,6 +146,87 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/statistics/plots2.py" />
       <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv  --input ../inputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plots3" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/statistics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/statistics/plots3.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv  --input ../inputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plots4" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/statistics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/statistics/plots4.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv  --input ../inputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plots5" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/statistics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/statistics/statistics_EvoApps2022.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv  --input ../inputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="print_check" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/NNNNNNNNNNNNN" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/NNNNNNNNNNNNN/print_check.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -151,6 +248,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo SPEA2 --pop 20 --ga-sel None --prob-cross 0.7 --prob-mut 0.2 --ga-sel TOURNAMENT2 --ga-cross 2POINT --ga-mut UNIFORM --ga-repl mu_lambda --pop 20 --iter 1000 --radius 500 --seed 1  --qos-alpha 1 --qos-beta 0.5 --qos-gamma 0.2 --input ./inputs --output ./outputs" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test dummy RS" type="PythonConfigurationType" factoryName="Python">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="363 33550 14 CxA_filter.ssv ExA.ssv cp.ssv facility_points.ssv substations_points_EkW.ssv --algo RS --ga-sel None --prob-cross 0.7 --prob-mut 1 --ga-generation ZONES --ga-sel TOURNAMENTDC --ga-cross ZONES --ga-mut ZONES --ga-mut-param 7 --ga-repl mu_lambda --radius 500 --seed 666 --qos-alpha 0.6 --qos-beta 0 --qos-gamma 0.4 --input ./inputs --output ./outputs --iter 100 --pop 8 --timer 10" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -263,21 +381,49 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="time_log" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="EV-CSL" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/statistics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/statistics/time_log.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main SPEA2" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.test SPEA2" />
       <item itemvalue="Python.test dummy cross consructuve 7" />
+      <item itemvalue="Python.test dummy RS" />
       <item itemvalue="Python.test dummy cross consructuve 1" />
       <item itemvalue="Python.test dummy cross" />
       <item itemvalue="Python.test dummy" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.dummy test" />
+      <item itemvalue="Python.plots3" />
+      <item itemvalue="Python.plots4" />
+      <item itemvalue="Python.plots5" />
+      <item itemvalue="Python.print_check" />
       <item itemvalue="Python.montecarlo" />
       <item itemvalue="Python.plots2" />
+      <item itemvalue="Python.time_log" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.time_log" />
         <item itemvalue="Python.plots2" />
         <item itemvalue="Python.montecarlo" />
       </list>

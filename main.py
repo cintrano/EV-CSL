@@ -7,6 +7,7 @@ import deap.tools
 import numpy as np
 from pygmo.core import hypervolume
 
+import random_search
 from arguments import args
 import ga_mo
 import problem
@@ -45,6 +46,8 @@ if __name__ == '__main__':
         if args.algorithm == "SPEA2":
             fits, pop = ga_mo.run_spea2(problem.fitness_mo, args.POP_SIZE, args.sel_mode, args.cross_mode, args.mut_mode,
                               args.repl_mode, cross_prob=args.prob_cross, mut_prob=args.prob_mut, max_iter=args.iter)
+        if args.algorithm == "RS":
+            fits, pop = random_search.run(problem.fitness_mo, max_time=args.max_time, max_iter=args.iter)
         # Execution time
         end = datetime.datetime.now()
         duration = end - start
