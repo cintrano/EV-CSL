@@ -155,7 +155,7 @@ def prepare_dataframe(data, algo, label, marker):
 
 df = pd.DataFrame(columns=['algorithm', 'label', 'f1', 'f2', 'marker'])
 
-path_experiments = '/home/cintrano/_current/EV-CSL-results/'
+path_experiments = '/home/cintrano/_current/EV-CSL-results/_tuning_manual/'
 
 
 fig, ax = plt.subplots(figsize=(15, 15))
@@ -345,5 +345,24 @@ for a in df['algorithm'].unique().tolist():
         line = [[a, l, hv_rel, gd.do(pp), gd_plus.do(pp), igd.do(pp), igd_plus.do(pp)]]
         df_line = pd.DataFrame(line, columns=['algorithm', 'label', 'hv', 'gd', 'gd+', 'igd', 'igd+'])
         df_mo_metrics = df_mo_metrics.append(df_line)
+
+print(df_mo_metrics.to_latex(index=False, float_format='%.3f'))
+
+df_mo_metrics = pd.DataFrame(columns=['algorithm', 'label', 'hv', 'gd', 'gd+', 'igd', 'igd+'])
+for a in df['algorithm'].unique().tolist():
+    print(a, '& ', end='')
+    for c in [5, 7, 9]:
+        print(c, '& ', end='')
+        for m in [1, 4, 7]:
+            l = f'{c}-{m}'
+            q = f'algorithm == "{a}" and label == "{l}"'
+            data = df.query(q)[['f1', 'f2']].values
+            hv, pp = compute_hv(data, nadir_point)
+            hv_rel = hv / pareto_optimal_hv
+            line = [[a, l, hv_rel, gd.do(pp), gd_plus.do(pp), igd.do(pp), igd_plus.do(pp)]]
+            df_line = pd.DataFrame(line, columns=['algorithm', 'label', 'hv', 'gd', 'gd+', 'igd', 'igd+'])
+            df_mo_metrics = df_mo_metrics.append(df_line)
+            print('%.3f' % hv_rel, '& ', end='')
+        print(' \\\\')
 
 print(df_mo_metrics.to_latex(index=False, float_format='%.3f'))

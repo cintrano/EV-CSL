@@ -144,6 +144,7 @@ def prepare_dataframe(data, algo, label, marker):
     df['color'] = 'b'
     return df
 
+
 def print_pareto_hv(data, nadir_point, ax, label, relative=1., color='red', marker='o'):
     """
     :param data: Numpy array

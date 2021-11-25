@@ -210,3 +210,89 @@ if __name__ == '__main__':
 python see_sol2.py malaga-city.ssv mb2.eps da_aparcamientosBiciEMT-25830-MOD.csv facilities_points.ssv 
 python see_sol_best.py malaga-city.ssv best-e-p.pdf da_aparcamientosBiciEMT-25830-MOD.csv facility_points.ssv e-p
 '''
+
+
+def main2(sols, labels, filename='map.pdf', color_sol='orange'):
+    colors = ["orangered", "olivedrab", "darkgoldenrod",
+              "lightseagreen", "darkorchid", "royalblue"]
+    colors_algo = ["red", "blue", "purple"]
+
+    CITY = '/home/cintrano/PycharmProjects/location_problems/data/malaga-city.ssv'
+    LOCATION_OF_FACILITIES = '/home/cintrano/PycharmProjects/location_problems/data/facility_points.ssv'
+    SUBSTATIONS_LOCATIONS = '/home/cintrano/PycharmProjects/location_problems/data/substations_points.ssv'
+    nodes, arcs = load_map_ssv(CITY)
+
+    print(len(nodes))
+    print(len(arcs))
+
+    G = nx.Graph()  # G = nx.DiGraph()
+    val_map = {}
+    col_map = {}
+    shp_map = {}
+
+    add_stations(SUBSTATIONS_LOCATIONS, G, col_map, val_map, shp_map)
+
+    facilities = read_facilities(LOCATION_OF_FACILITIES)
+
+    i = 0
+    for indexes in sols:
+        add_solution(G, col_map, val_map, facilities, indexes, colors_algo[i])
+        i += 1
+
+    for node in nodes:
+        col_map[str(node['id'])] = 'black'
+        val_map[str(node['id'])] = 1
+        shp_map[str(node['id'])] = 'o'
+        G.add_node('n' + str(node['id']), pos=(node['lon'], node['lat']), color='black', shape='.', size=1)
+
+    for arc in arcs:
+        # if next((item for item in nodes if item["id"] == arc["from"]), False):
+        #     if next((item for item in nodes if item["id"] == arc["to"]), False):
+        if arc['from'] != arc['to']:
+            G.add_edge('n' + str(arc['from']), 'n' + str(arc['to']))
+
+    print("G", G.number_of_nodes(), G.number_of_edges())
+
+
+
+    print_graph2(G, f'{os.path.dirname(__file__)}/maps/{filename}', col_map, val_map, shp_map)
+
+
+def print_graph2(graph, filename, col_map, val_map, shp_map):
+    fig = plt.figure()
+    values = [col_map.get(n, 'black') for n in graph.nodes()]
+    values_size = [val_map.get(n, 6) for n in graph.nodes()]
+    values_shape = [shp_map.get(n, 'o') for n in graph.nodes()]
+    #values_shape = ['v' for n in graph.nodes()]
+    print(len(values_shape), len(values), len(values_size))
+    # Rescale figure
+    N = 8
+    params = plt.gcf()
+    plSize = params.get_size_inches()
+    params.set_size_inches((plSize[0] * N, plSize[1] * N))
+    # Remove axis
+    plt.axis('off')
+    pos = nx.get_node_attributes(graph, 'pos')
+    colors = nx.get_node_attributes(graph, 'color')
+    # Print
+    for shape in set(values_shape):
+        node_list = [node for node in graph.nodes() if graph.nodes[node]['shape'] == shape]
+        values = [col_map.get(n, 'black') for n in graph.nodes() if graph.nodes[n]['shape'] == shape]
+        values_size = [val_map.get(n, 6) for n in graph.nodes() if graph.nodes[n]['shape'] == shape]
+        nx.draw_networkx_nodes(graph, pos, nodelist=node_list, node_size=values_size, node_color=values, node_shape=shape, alpha=0.7)
+        #nx.draw_networkx_nodes(graph, pos)
+    # nx.draw_networkx_labels(G,pos)
+    nx.draw_networkx_edges(graph, pos, alpha=0.5)
+
+    from matplotlib.lines import Line2D
+    legend_elements = [  # Line2D([0], [0], marker='s', color='w', label='NSGA-II Random', markerfacecolor='black'),
+        Line2D([0], [0], marker='o', color='w', label='NSGA-II',
+               markerfacecolor='red', markersize=80),
+        Line2D([0], [0], marker='o', color='w', label='SPEA2',
+               markerfacecolor='blue', markersize=80)]
+    plt.legend(handles=legend_elements, loc='lower right', fontsize="100")
+
+    plt.margins(0.0)
+    fig.tight_layout(pad=0)
+    fig.savefig(filename, format='pdf', dpi=300, bbox_inches='tight')#, pad_inches=-3)
+    #plt.show()

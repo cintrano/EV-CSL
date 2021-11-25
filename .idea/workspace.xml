@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcf2213e-1488-4050-9a65-bd5ad662d314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/random_search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics/plots3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics/plots4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics/statistics_EvoApps2022.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics/time_log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/arguments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics/graph_map_prints.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/graph_map_prints.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statistics/my_utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/my_utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics/plots3.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/plots3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics/statistics_EvoApps2022.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/statistics_EvoApps2022.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics/time_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistics/time_log.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +44,7 @@
       <recent name="$PROJECT_DIR$/operators" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.print_check">
+  <component name="RunManager" selected="Python.plots5">
     <configuration name="dummy test" type="PythonConfigurationType" factoryName="Python">
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -199,6 +196,9 @@
       <module name="EV-CSL" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/statistics" />
       <option name="IS_MODULE_SDK" value="true" />
